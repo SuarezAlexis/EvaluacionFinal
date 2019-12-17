@@ -2,7 +2,7 @@ package mx.unam.dgtic.asesorias.modelo;
 
 import java.io.Serializable;
 
-public class Usuario implements Serializable {
+public class Usuario {
 
     private String username;
     private String nombre;
@@ -10,7 +10,6 @@ public class Usuario implements Serializable {
     private String password;
     private String email;
     private boolean habilitado;
-    private String avatar;
 
     public String getUsername() {
         return username;
@@ -58,5 +57,17 @@ public class Usuario implements Serializable {
 
     public void setHabilitado(boolean habilitado) {
         this.habilitado = habilitado;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "username='" + username + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", habilitado=" + habilitado +
+                '}';
     }
 }

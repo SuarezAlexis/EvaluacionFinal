@@ -45,7 +45,6 @@ public class UsuariosAdapter extends BaseAdapter {
         TextView nombreTextView = view.findViewById(R.id.nombreTextView);
         TextView emailTextView = view.findViewById(R.id.emailTextView);
         ImageView habilitadoImageView = view.findViewById(R.id.habilitadoImageView);
-        ImageView avatarImageView = view.findViewById(R.id.avatarImageView);
 
         Usuario u = usuarios.get(position);
         usernameTextView.setText(u.getUsername());
@@ -53,6 +52,6 @@ public class UsuariosAdapter extends BaseAdapter {
         emailTextView.setText(u.getEmail());
         habilitadoImageView.setImageResource(u.isHabilitado()? android.R.drawable.presence_online : android.R.drawable.presence_invisible);
 
-        return null;
+        return view;
     }
 }

@@ -2,9 +2,11 @@ package mx.unam.dgtic.asesorias.evaluacionfinal;
 
 import androidx.appcompat.app.AppCompatActivity;
 import mx.unam.dgtic.asesorias.modelo.Usuario;
+import mx.unam.dgtic.asesorias.util.Bundler;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -37,13 +39,15 @@ public class MainActivity extends AppCompatActivity {
         UsuariosAdapter adapter = new UsuariosAdapter(this,usuarios);
         listView.setAdapter(adapter);
 
+        //Log.d("DEBUG","Se pobló lista y se envió a adapter. Se estableció adapter en listView\n" + usuarios);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this,Main2Activity.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("Usuario",parent.getItemIdAtPosition(position));
-                intent.putExtras(intent);
+                Bundler.putUsuario(bundle,(Usuario) parent.getItemAtPosition(position));
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
